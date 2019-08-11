@@ -10,11 +10,15 @@
 }
 
 .about-me .photo img {
-    width: 300px;
+    width: 200px;
 }
 
 .about-me .desc {
     margin-top: 20px;
+}
+
+.about-me .desc p {
+    font-size: 24px;
 }
 
 .need-team-list {
@@ -141,4 +145,24 @@
     top: 140px;
     font-size: 28px;
     display: block;
+}
+
+h3.section-title, h4.section-title {
+    color: #ffdd2d;
+}
+
+.section-title .icon {
+    font-size: 120px;
+}
+
+img.player-a-img {
+    width: 70%;
+}
+
+img.gold-bullet-img {
+    width: 60%;
+}
+
+img.dev-task-img {
+    width: 60%;
 }

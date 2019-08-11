@@ -9,3 +9,11 @@
 .highlight-green-text {
     color: #8cb517 !important;
 }
+
+.reveal ul, ol, p {
+    font-size: 32px;
+}
+
+.left-text {
+    text-align: left;
+}
