@@ -17,3 +17,7 @@
 .left-text {
     text-align: left;
 }
+
+.reveal pre {
+    box-shadow: none!important;
+}
