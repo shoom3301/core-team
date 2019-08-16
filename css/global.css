@@ -20,4 +20,5 @@
 
 .reveal pre {
     box-shadow: none!important;
+    width: 1000px!important;
 }

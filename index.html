@@ -59,7 +59,7 @@
 							Как <span class="highlight-blue-text">эффективно</span> делать задачи в платформенной команде
 						</li>
 						<li class="fragment">
-							Способы <span class="highlight-blue-text">распространения</span> сервисов и компонент
+							Способы <span class="highlight-blue-text">доставки</span> сервисов и компонент
 						</li>
 						<li class="fragment">
 							Какие задачи нужно <span class="highlight-blue-text">делегировать</span> в продуктовые команды и как доводить их до конца
@@ -91,7 +91,7 @@
 						<li class="fragment">Большие расхождения в инструментах со смежными командами?</li>
 						<li class="fragment">Нет времени/сил писать документацию?</li>
 						<li class="fragment">Некогда следить за тем, что делают в других командах?</li>
-						<li class="fragment">Нет времени рефакторить легаси?</li>
+						<li class="fragment">Нет времени рефакторить legacy?</li>
 					</ol>
 				</section>
 				<section>
@@ -133,13 +133,13 @@
 						</div>
 					</div>
 				</section>
-				<section data-background="#4A148C">
-					<h3>‍🎓 Шаринг знаний</h3>
-					<p> — нельзя становиться узким горлышком</p>
-				</section>
 				<section data-background="#3E2723">
 					<h3>💪 Ответственность</h3>
 					<p> — за критичные сервисы и компоненты без мейнтейнера</p>
+				</section>
+				<section data-background="#4A148C">
+					<h3>‍🎓 Шаринг знаний</h3>
+					<p> — нельзя становиться узким горлышком</p>
 				</section>
 				<section data-background="#303952">
 					<h3>📢 Обратная связь</h3>
@@ -151,7 +151,9 @@
 					</ol>
 				</section>
 				<section>
-					<h3 class="section-title"><span class="icon">⚡</span><br>Как эффективно делать задачи в платформенной команде?</h3>
+					<h3 class="section-title">
+						<span class="icon">⚡</span><br>Как эффективно делать задачи в платформенной команде?
+					</h3>
 				</section>
 				<section>
 					<img class="player-a-img" src="assets/player-a.jpg">
@@ -195,43 +197,55 @@
 					<img class="gold-bullet-img" src="assets/gold-bullet.gif">
 				</section>
 				<section>
-					<h3 class="section-title"><span class="icon">🚚</span><br> Способы распространения сервисов и компонент</h3>
+					<h3 class="section-title"><span class="icon">🚚</span><br> Способы доставки сервисов и компонент</h3>
+				</section>
+				<section>
+					<h3>Типы требований</h3>
+					<ul>
+						<li class="fragment">Сквозной релиз (одним релизом добавить фичу во все продукты)</li>
+						<li class="fragment">Версионирование / Наличие обратно-совместимого API</li>
+						<li class="fragment">Частое использование в коде</li>
+						<li class="fragment">Реализация UI (зависимость от ui-kit)</li>
+					</ul>
 				</section>
 				<section data-background="#033057">
 					<h3>📦 NPM пакет</h3>
-					<h5>Если распространяемый код:</h5>
 					<ul>
-						<li class="fragment">не имеет обратно-совместимого API</li>
-						<li class="fragment">часто используется в коде приложения</li>
-						<li class="fragment">не требует единовременного релиза во всех продуктах</li>
+						<li class="fragment">Версионирование (не имеет обратно-совместимого API)</li>
+						<li class="fragment">Нельзя сделать сквозной релиз (нужно релизить все продукты)</li>
+						<li class="fragment">Часто используется в коде приложения</li>
+						<li class="fragment">Реализует UI</li>
 					</ul>
 				</section>
 				<section data-background="#033057">
 					<h4>Пример:</h4>
 					<pre>
-						<code class="hljs" data-trim data-line-numbers="1,5">
-							import {ApiService} from '@sme-foundation/core';
+						<code class="hljs" data-trim data-line-numbers="1,5,10,12">
+							import {ApiService, DialogService} from '@sme-foundation/core';
 
 							@Injectable({providedIn: 'root'})
 							export class UserConfigService {
-								constructor(private api: ApiService) {}
+							constructor(private api: ApiService, private dialog: DialogService) {}
 
-								setAndSaveConfig(config: IUserConfig): Observable {
-									this.setConfig(config);
+							setAndSaveConfig(config: IUserConfig): Observable {
+							this.setConfig(config);
 
-									return this.api.post('/users/config', config);
-								}
+							return this.api.post('/users/config', config)
+								.pipe(tap(() => {
+									this.dialog.showPopup('Конфиг юзера сохранен!');
+								}));
+							}
 							}
 						</code>
 					</pre>
 				</section>
 				<section data-background="#37474f">
 					<h3>🔗 Ссылка на js-скрипт</h3>
-					<h5>Если распространяемый код:</h5>
 					<ul>
-						<li class="fragment">имеет обратно-совместимый API</li>
-						<li class="fragment">не реализует значимый UI</li>
-						<li class="fragment">требует единовременного релиза во всех продуктах</li>
+						<li class="fragment">Имеет обратно-совместимый API (не вресионируется)</li>
+						<li class="fragment">Сквозной релиз</li>
+						<li class="fragment">Редко используется в коде приложения</li>
+						<li class="fragment">Не реализует UI</li>
 					</ul>
 				</section>
 				<section data-background="#37474f">
@@ -249,10 +263,11 @@
 				</section>
 				<section data-background="#4a148c">
 					<h3>🖼️ IFrame</h3>
-					<h5>Если распространяемый код:</h5>
 					<ul>
-						<li class="fragment">реализует богатый UI</li>
-						<li class="fragment">требует единовременного релиза во всех продуктах</li>
+						<li class="fragment">Имеет обратно-совместимый API (не вресионируется)</li>
+						<li class="fragment">Сквозной релиз</li>
+						<li class="fragment">Редко используется в коде приложения</li>
+						<li class="fragment">Реализует UI</li>
 						<li class="fragment">+ script, если взаимодействует с основным приложением</li>
 					</ul>
 				</section>
@@ -272,6 +287,44 @@
 					<img src="assets/iframe-script.png">
 				</section>
 				<section>
+					<table>
+						<thead>
+						<tr>
+							<td></td>
+							<td>NPM</td>
+							<td>JS link</td>
+							<td>IFrame</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Верс-ние</td>
+							<td>+</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>Скв. релиз</td>
+							<td>-</td>
+							<td>+</td>
+							<td>+</td>
+						</tr>
+						<tr>
+							<td>Част. исп.</td>
+							<td>+</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>UI</td>
+							<td>+</td>
+							<td>-</td>
+							<td>+</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
 					<h3 class="section-title">
 						<span class="icon">😌</span><br>
 						Какие задачи нужно делегировать<br> в продуктовые команды
@@ -289,6 +342,10 @@
 				<section>
 					<h3>⏱️ Устанавливайте сроки</h3>
 					<img src="assets/ignor.jpg">
+				</section>
+				<section>
+					<h3>📝️ Пишите документацию</h3>
+					<img src="assets/int-test.gif">
 				</section>
 				<section>
 					<h3>🕶️ Матрица внедрения фич</h3>
