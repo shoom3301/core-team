@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="css/global.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="assets/just-do-it.gif">
+					<h3>Platform team</h3>
+					<h5>the guide</h5>
+				</section>
+				<section>
+					<div class="about-me">
+						<div class="photo">
+							<img src="assets/pht.jpeg">
+						</div>
+						<div class="desc">
+							<h4>Kazachenko Alexandr</h4>
+							<p><a class="highlight-yellow-text" href="https://tinkoff.ru">Tinkoff.ru</a>
+								<br>Architect
+								<br><a class="highlight-yellow-text" href="mailto:shoom3301@gmail.com">shoom3301@gmail.com</a>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Will talk about</h3>
+					<ul class="plan">
+						<li class="fragment">
+							How to understand that you <span class="highlight-blue-text">need</span> a platform team
+						</li>
+						<li class="fragment">
+							What is included in the <span class="highlight-blue-text">tasks</span> of the platform team
+						</li>
+						<li class="fragment">
+							How to <span class="highlight-blue-text">effectively</span> do tasks in a platform team
+						</li>
+						<li class="fragment">
+							<span class="highlight-blue-text">Delivery</span> methods for services and components
+						</li>
+						<li class="fragment">
+							What tasks should be <span class="highlight-blue-text">delegated</span> to product teams and how to complete them
+						</li>
+						<li class="fragment">
+							Further <span class="highlight-blue-text">evolution</span> of the platform team
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3 class="section-title">
+						Platform team <br> ???
+					</h3>
+				</section>
+				<section>
+					<h3 class="section-title"><span class="icon">🤔</span><br>How to understand that you need a platform team?</h3>
+				</section>
+				<section data-background-image="assets/hide-the-pain-harold.jpg">
+					<h4>Reasons for creating Core-team<br> in Tinkoff.Business</h4>
+					<ul>
+						<li class="fragment">The number of teams increased from <span class="highlight-blue-text">3 to 20+</span></li>
+						<li class="fragment">It's hard to share expertise among <span class="highlight-blue-text">60+ developers</span></li>
+						<li class="fragment">Difficult to implement technical features in products</li>
+						<li class="fragment">Backlog of technical features is not fulfilled</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Count the number of <span class="highlight-green-text">"yes"</span> to the questions:</h4>
+					<ol class="need-team-list">
+						<li class="fragment">Do you have many related commands? </li>
+						<li class="fragment">No time for research? </li>
+						<li class="fragment">Backlog of technical features is not fulfilled? </li>
+						<li class="fragment">No time to share code and practices with other teams? </li>
+						<li class="fragment">Big difference in tools with related commands? </li>
+						<li class="fragment">No time/desire to write documentation? </li>
+						<li class="fragment">No time to keep track of what other teams are doing? </li>
+						<li class="fragment">No time to refactor a legacy? </li>
+					</ol>
+				</section>
+				<section>
+					<img src="assets/no-no.gif">
+				</section>
+				<section>
+					<h1 class="highlight-green-text">> 4</h1>
+					<h4>You need a platform team</h4>
+				</section>
+				<section>
+					<h3 class="section-title"><span class="icon">🎲</span><br> What is included in the tasks<br> of the platform team?</h3>
+				</section>
+				<section>
+					<img src="assets/multitasking.gif">
+					<h4>Everything outside<br>of the product teams focus</h4>
+				</section>
+				<section data-background="#37474F">
+					<div class="core-team-work">
+						<div class="tags">
+							<div class="fragment">Monitoring</div>
+							<div class="fragment">CDN</div>
+							<div class="fragment">CI</div>
+							<div class="fragment">Performance</div>
+							<div class="fragment">Graceful degradation</div>
+							<div class="fragment">Lighthouse</div>
+							<div class="fragment">HTTP2</div>
+							<div class="fragment">NGINX</div>
+							<div class="fragment">README</div>
+							<div class="fragment">Alerts</div>
+							<div class="fragment">Lerna</div>
+							<div class="fragment">OAuth</div>
+							<div class="fragment">Service Workers</div>
+							<div class="fragment">Feature toggle</div>
+							<div class="fragment">Nexus</div>
+						</div>
+						<div class="makeup">
+							<br>
+							🎨
+						</div>
+					</div>
+				</section>
+				<section data-background="#3E2723">
+					<h3>💪 Responsibility</h3>
+					<p> — for critical services and components without a maintainer</p>
+				</section>
+				<section data-background="#4A148C">
+					<h3>‍🎓 Knowledge sharing</h3>
+					<p> — don't get a bottle neck</p>
+				</section>
+				<section data-background="#303952">
+					<h3>📢 Feedback</h3>
+					<ol>
+						<li class="fragment">The more you do, the more you need to maintain</li>
+						<li class="fragment">Solve issues through one channel</li>
+						<li class="fragment">On duty</li>
+						<li class="fragment">Write a FAQ</li>
+					</ol>
+				</section>
+				<section>
+					<h3 class="section-title">
+						<span class="icon">⚡</span><br>How to effectively do tasks in a platform team?
+					</h3>
+				</section>
+				<section>
+					<img class="player-a-img" src="assets/flower-sniffing-champion.jpg">
+				</section>
+				<section>
+					<ol>
+						<li class="fragment"><h4>Research</h4></li>
+						<li class="fragment"><h4>Architecture</h4></li>
+						<li class="fragment"><h4>Implementation</h4></li>
+						<li class="fragment"><h4>Documentation</h4></li>
+						<li class="fragment"><h4>Commissioning in 1 product</h4></li>
+						<li class="fragment"><h4>Scaling</h4></li>
+					</ol>
+				</section>
+				<section data-background="#6A1B9A">
+					<h3>🔎 Research</h3>
+					<p> — the source of the platform team backlog</p>
+				</section>
+				<section data-background="#0D47A1">
+					<h3>📐 Architecture</h3>
+					<p> — PoC and collect as many pitfalls as possible</p>
+				</section>
+				<section data-background="#212121">
+					<h3>⚒️ Implementation</h3>
+					<p> — versioning, changelog, tests</p>
+					<p> — flexible, "boxed solution"</p>
+				</section>
+				<section data-background="#BF360C">
+					<h3>📁 Documentation</h3>
+					<p> — installation, API, use cases</p>
+				</section>
+				<section data-background="#2E7D32">
+					<h3>🐇 Commissioning in 1 product</h3>
+					<p> — make sure that the solution works in integration with the product</p>
+				</section>
+				<section data-background="#00838F">
+					<h3>🌍 Scaling</h3>
+					<p> — "sell" and implement the solution in the maximum number of products</p>
+				</section>
+				<section>
+					<img class="gold-bullet-img" src="assets/gold-bullet.gif">
+				</section>
+				<section>
+					<h3 class="section-title"><span class="icon">🚚</span><br> Delivery methods for services and components</h3>
+				</section>
+				<section>
+					<h3>Requirements</h3>
+					<ul>
+						<li class="fragment">End-to-end release (add a feature to all products in one release)</li>
+						<li class="fragment">Versioning / Availability of backward compatible API</li>
+						<li class="fragment">Frequent use in code</li>
+						<li class="fragment">UI implementation (ui-kit dependent)</li>
+					</ul>
+				</section>
+				<section data-background="#033057">
+					<h3>📦 NPM package</h3>
+					<ul>
+						<li class="fragment">Versioning (may not have backward compatible API)</li>
+						<li class="fragment">Can't do end-to-end release (need to release all products)</li>
+						<li class="fragment">Often used in application code</li>
+						<li class="fragment">Implements UI</li>
+					</ul>
+				</section>
+				<section data-background="#033057">
+					<h4>Example:</h4>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1,5,10,12">
+							import {ApiService, DialogService} from '@sme-foundation/core';
+
+							@Injectable({providedIn: 'root'})
+							export class UserConfigService {
+							constructor(private api: ApiService, private dialog: DialogService) {}
+
+							setAndSaveConfig(config: IUserConfig): Observable {
+							this.setConfig(config);
+
+							return this.api.post('/users/config', config)
+								.pipe(tap(() => {
+									this.dialog.showPopup('Config saved!');
+								}));
+							}
+							}
+						</code>
+					</pre>
+				</section>
+				<section data-background="#37474f">
+					<h3>🔗 Link to JS-script</h3>
+					<ul>
+						<li class="fragment">Has backward compatible API (not versioned)</li>
+						<li class="fragment">End-to-end release</li>
+						<li class="fragment">Rarely used in application code</li>
+						<li class="fragment">Does not implement UI</li>
+					</ul>
+				</section>
+				<section data-background="#37474f">
+					<h4>Example:</h4>
+					<pre>
+						<code class="hljs" data-trim>
+							...
+							<script src="/common/analytics.js"></script>
+							<script>
+								window['analytics'].initialize();
+							</script>
+							...
+						</code>
+					</pre>
+				</section>
+				<section data-background="#4a148c">
+					<h3>🖼️ IFrame</h3>
+					<ul>
+						<li class="fragment">Has backward compatible API (not versioned)</li>
+						<li class="fragment">End-to-end release</li>
+						<li class="fragment">Rarely used in application code</li>
+						<li class="fragment">Implements UI</li>
+						<li class="fragment">+ JS-script, if interacting with the main application</li>
+					</ul>
+				</section>
+				<section data-background="#4a148c">
+					<h4>Example:</h4>
+					<pre>
+						<code class="hljs" data-trim>
+							&lt;iframe src="/common/messenger.html"&gt;&lt;/iframe&gt;
+							<script src="/common/messenger.js"></script>
+							<script>
+								window['messenger'].createDraft('Hello!');
+							</script>
+						</code>
+					</pre>
+				</section>
+				<section data-background="#4a148c">
+					<img src="assets/iframe-script.png">
+				</section>
+				<section>
+					<table>
+						<thead>
+						<tr>
+							<td></td>
+							<td>NPM</td>
+							<td>JS link</td>
+							<td>IFrame</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Versioning</td>
+							<td>+</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>E2E release</td>
+							<td>-</td>
+							<td>+</td>
+							<td>+</td>
+						</tr>
+						<tr>
+							<td>Frequent use</td>
+							<td>+</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>UI</td>
+							<td>+</td>
+							<td>-</td>
+							<td>+</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3 class="section-title">
+						<span class="icon">😌</span><br>
+						What tasks should be delegated<br/> to product teams
+					</h3>
+					<h4 class="section-title"> and how to complete them?</h4>
+				</section>
+				<section>
+					<h3>❤️ Any tasks that you are ready to take and do</h3>
+					<p> — do not refuse the help of grocery teams</p>
+				</section>
+				<section>
+					<h3>🎫 Get tickets</h3>
+					<img class="dev-task-img" src="assets/dev-task.png">
+				</section>
+				<section>
+					<h3>⏱️ Set deadlines</h3>
+					<img src="assets/ignore-forever.jpg">
+				</section>
+				<section>
+					<h3>📝️ Write documentation</h3>
+					<img src="assets/int-test.gif">
+				</section>
+				<section>
+					<h3>🕶️ Feature Implementation Matrix</h3>
+					<p><img src="assets/matrix.png"/></p>
+				</section>
+				<section>
+					<h3>⚽️ Gamification</h3>
+					<p><img src="assets/challenge.png"/></p>
+				</section>
+				<section>
+					<h3 class="section-title"><span class="icon">🔮</span><br> Further evolution of the platform team</h3>
+				</section>
+				<section data-background="#004d40">
+					<h3>Сore team</h3>
+					<p> — one of the first stages of evolution</p>
+				</section>
+				<section data-background="#006064">
+					<h4 class="fragment">Performance team</h4>
+					<h4 class="fragment">Monitoring team</h4>
+					<h4 class="fragment">Accessibility team</h4>
+					<h4 class="fragment">Tooling team</h4>
+					<h4 class="fragment">...</h4>
+				</section>
+				<section>
+					<h3 class="section-title"><span class="icon">👍</span><br>Thank you!</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				slideNumber: true,
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

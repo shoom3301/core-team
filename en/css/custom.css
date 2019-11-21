@@ -1,0 +1,168 @@
+.about-me {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    text-align: left;
+}
+
+.about-me .photo {
+    margin-right: 20px;
+}
+
+.about-me .photo img {
+    width: 200px;
+}
+
+.about-me .desc {
+    margin-top: 20px;
+}
+
+.about-me .desc p {
+    font-size: 24px;
+}
+
+.need-team-list {
+    font-size: 32px!important;
+}
+
+.core-team-work {
+    position: relative;
+}
+
+.core-team-work .tags {
+    position: absolute;
+    font-size: 24px;
+}
+
+.core-team-work .makeup {
+    font-size: 170px;
+    height: 100vh;
+}
+
+.core-team-work .tags > div {
+    position: absolute;
+    display: none;
+}
+
+.core-team-work .tags > div:nth-child(1) {
+    left: 50px;
+    top: 50px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(2) {
+    left: 220px;
+    top: 70px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(3) {
+    left: 450px;
+    top: 30px;
+    font-size: 64px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(4) {
+    left: 620px;
+    top: 120px;
+    font-size: 42px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(5) {
+    left: 680px;
+    top: 220px;
+    font-size: 28px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(6) {
+    left: 720px;
+    top: 350px;
+    font-size: 35px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(7) {
+    left: 800px;
+    top: 480px;
+    font-size: 35px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(8) {
+    left: 540px;
+    top: 450px;
+    font-size: 28px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(9) {
+    left: 380px;
+    top: 540px;
+    font-size: 25px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(10) {
+    left: 240px;
+    top: 480px;
+    font-size: 38px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(11) {
+    left: 160px;
+    top: 320px;
+    font-size: 22px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(12) {
+    left: 120px;
+    top: 380px;
+    font-size: 40px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(13) {
+    left: 10px;
+    top: 460px;
+    font-size: 30px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(14) {
+    left: 10px;
+    top: 280px;
+    font-size: 20px;
+    display: block;
+}
+
+.core-team-work .tags > div:nth-child(15) {
+    left: 10px;
+    top: 140px;
+    font-size: 28px;
+    display: block;
+}
+
+h3.section-title, h4.section-title {
+    color: #ffdd2d;
+}
+
+.section-title .icon {
+    font-size: 120px;
+}
+
+img.player-a-img {
+    width: 50%;
+}
+
+img.gold-bullet-img {
+    width: 60%;
+}
+
+img.dev-task-img {
+    width: 60%;
+}
